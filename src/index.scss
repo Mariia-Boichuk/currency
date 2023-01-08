@@ -1,0 +1,12 @@
+@import "./styles/reset.css";
+@import "./styles/fonts";
+@import "./styles/constants";
+
+body {
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: $color-light;
+}

@@ -1,0 +1,34 @@
+@import "../../../src/styles/constants.scss";
+@import "../../../src/styles/fonts.scss";
+
+.currency-row {
+  display: flex;
+
+  &__input {
+    padding-left: 6px;
+    height: 40px;
+    width: 140px;
+    background-color: $lightest;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 1px solid $light-border;
+    transition: border-color 0.35s ease;
+    font-family: $font-family;
+
+    &:focus {
+      outline: none;
+      border-color: rgba($color-primary, 0.5);
+    }
+  }
+
+  .select {
+    margin-left: 16px;
+    width: 70px;
+
+    &__option {
+      background-color: $lightest;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import "../../styles/constants";
+
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: $darkest;
+  height: 60px;
+  width: 100%;
+  margin-bottom: 50px;
+
+  &__currencies {
+    display: flex;
+
+    height: 60px;
+  }
+  &__currency-item {
+    height: 60px;
+    border: 0;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    background-color: transparent;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.currency-item {
+  &__name {
+    color: $color-primary;
+    border-bottom: 1px dotted $color-primary;
+
+    margin-right: 10px;
+  }
+
+  &__value {
+    color: $font-color-on-dark;
+  }
+}

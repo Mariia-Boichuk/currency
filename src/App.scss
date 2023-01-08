@@ -1,0 +1,28 @@
+@import "src/styles/constants.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-size: 28px;
+  line-height: 1.4rem;
+  margin: 0 12px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.text {
+  margin: 15px 0;
+}
+
+.currency-inputs {
+  text-align: center;
+}
+
+.error {
+  margin-top: 20px;
+  color: $error-color;
+}
