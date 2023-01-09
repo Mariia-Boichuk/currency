@@ -7,11 +7,7 @@ import "./App.scss";
 import { rounded } from "./utils";
 
 function App() {
-  const [currencyRates, setCurrencyRates] = useState({
-    EUR: " 0.93775",
-    UAH: " 36.778479",
-    USD: "1",
-  });
+  const [currencyRates, setCurrencyRates] = useState(null);
 
   const [error, setError] = useState("");
   const [currencyName1, setCurrencyName1] = useState("EUR");
@@ -49,13 +45,33 @@ function App() {
     setValue2(value);
   };
 
-  // useEffect(() => {
-  //   getCurrencies();
-  // }, []);
+  useEffect(() => {
+    getCurrencies();
+  }, []);
 
   useEffect(() => {
-    handleValueChange1();
-  }, [currencyName1, currencyName2]);
+    if (!!currencyRates) {
+      handleValueChange1(1);
+    }
+  }, [currencyRates]);
+
+  const handleCurrency1Change = (currency1) => {
+    setValue2(
+      rounded(
+        (value1 * currencyRates[currencyName2]) / currencyRates[currency1]
+      )
+    );
+    setCurrencyName1(currency1);
+  };
+
+  const handleCurrency2Change = (currency2) => {
+    setValue1(
+      rounded(
+        (value2 * currencyRates[currencyName1]) / currencyRates[currency2]
+      )
+    );
+    setCurrencyName2(currency2);
+  };
 
   return (
     <div className="wrapper">
@@ -68,14 +84,14 @@ function App() {
           currencyName={currencyName1}
           amountHandler={handleValueChange1}
           amount={value1}
-          currencyNameHandler={setCurrencyName1}
+          currencyNameHandler={handleCurrency1Change}
         />
         <p className="text">equals</p>
         <CurrencyRow
           currencyName={currencyName2}
           amount={value2}
           amountHandler={handleValueChange2}
-          currencyNameHandler={setCurrencyName2}
+          currencyNameHandler={handleCurrency2Change}
         />
       </div>
       {error && <p className="error">{error}</p>}
